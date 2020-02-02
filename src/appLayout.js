@@ -4,8 +4,8 @@ import auth from "./auth";
 export const AppLayout = props => {
   return (
     <div>
-      <h1>App Layout</h1>
-      <button
+      <h1>Home Page</h1>
+      <button                                      //LogOut Button
         onClick={() => {
           auth.logout(() => {
             props.history.push("/");

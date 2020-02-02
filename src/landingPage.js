@@ -2,9 +2,31 @@ import React from "react";
 import auth from "./auth";
 
 export const LandingPage = props => {
+  var user = {
+    username : '',
+    password : ''
+  }
+
+  var handleSubmit = (event)=>{
+    event.preventDefault();
+    console.log(user);
+  }
+
+  var handleInput = (event)=>{  
+    let nam = event.target.name;
+    let val = event.target.value;
+    user[nam] = val;
+  }
+
   return (
     <div>
-      <h1>Landing Page</h1>
+      <h1>Landing Page(Auth)</h1>
+      <form onSubmit={handleSubmit}>
+      <input type="text"    placeholder = "User Name" name="username" onChange={handleInput}/>
+      <input type="password"placeholder = "Password" name = "password" onChange={handleInput}/>
+      <input type="submit" value="Submit" />
+      </form>
+     
       <button
         onClick={() => {
           auth.login(() => {

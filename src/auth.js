@@ -1,10 +1,12 @@
+import app from './base';
+
 class Auth {
     constructor() {
       this.authenticated = false;
     }
   
     login(cb) {
-      this.authenticated = false;
+      this.authenticated = true;
       cb();
     }
   

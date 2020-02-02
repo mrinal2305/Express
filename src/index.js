@@ -5,7 +5,7 @@ import { AppLayout } from "./appLayout";
 import { ProtectedRoute } from "./protected.route";
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+// import { NavLink ,Prompt } from "react-router-dom";
 import "./index.css";
 
 function App() {
