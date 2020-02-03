@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { User } from './user.layout';
 import { Driver } from './driver.layout';
+import {EditUser} from './editUSer';
+
 // import { NavLink ,Prompt } from "react-router-dom";
 import "./index.css";
 
@@ -17,6 +19,7 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <ProtectedRoute exact path="/home"        component={AppLayout} />
         <ProtectedRoute exact path="/home/user"   component={User} />
+        <ProtectedRoute exact path="/home/user/:id"   component={EditUser} />
         <ProtectedRoute exact path="/home/driver" component={Driver} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
