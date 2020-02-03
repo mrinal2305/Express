@@ -1,16 +1,29 @@
-import app from './base';
+import { App } from './base';
+import withFirebaseAuth from 'react-with-firebase-auth'
+import "firebase/auth";
 
 class Auth {
+
     constructor() {
-      this.authenticated = false;
+      this.authenticated = true;
     }
   
-    login(cb) {
-      this.authenticated = true;
-      cb();
+    login(cb,user) {
+      var email    = user.username;
+      var password = user.password;
+
+      App.auth().signInWithEmailAndPassword(email,password)
+      .then((user)=>{
+        this.authenticated = true;
+        cb();
+      })
+      .catch((err)=>{
+         alert(err);
+      })
     }
   
     logout(cb) {
+      App.auth().signOut();
       this.authenticated = false;
       cb();
     }

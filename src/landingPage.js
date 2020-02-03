@@ -9,7 +9,9 @@ export const LandingPage = props => {
 
   var handleSubmit = (event)=>{
     event.preventDefault();
-    console.log(user);
+     auth.login(() => {
+      props.history.push("/app");
+    },user);  
   }
 
   var handleInput = (event)=>{  
@@ -27,7 +29,7 @@ export const LandingPage = props => {
       <input type="submit" value="Submit" />
       </form>
      
-      <button
+      {/* <button
         onClick={() => {
           auth.login(() => {
             props.history.push("/app");
@@ -35,7 +37,7 @@ export const LandingPage = props => {
         }}
       >
         Login
-      </button>
+      </button> */}
     </div>
   );
 };
