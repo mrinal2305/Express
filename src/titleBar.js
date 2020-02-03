@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TitleBar } from './titleBar';
 
-export class Driver extends React.Component {
+export class TitleBar extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -10,8 +9,7 @@ export class Driver extends React.Component {
     render() {
         return(
             <div>
-                <TitleBar />
-                <h4>Driver Layout</h4>
+                <h1>Title Bar</h1>
             </div>
         )
     }

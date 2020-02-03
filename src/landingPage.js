@@ -10,7 +10,7 @@ export const LandingPage = props => {
   var handleSubmit = (event)=>{
     event.preventDefault();
      auth.login(() => {
-      props.history.push("/app");
+      props.history.push("/home");
     },user);  
   }
 

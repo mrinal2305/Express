@@ -1,6 +1,5 @@
 import { App } from './base';
-import withFirebaseAuth from 'react-with-firebase-auth'
-import "firebase/auth";
+// import "firebase/auth"; 
 
 class Auth {
 
