@@ -39,6 +39,9 @@ class Database {
             return App.database().ref('users').child(key);
         }
         
+        userUpdate(key){
+            return App.database().ref('users').child(key);
+        }
   }
   
 export default new Database();

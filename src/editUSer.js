@@ -1,30 +1,54 @@
 import React from 'react';
 import { TitleBar } from './titleBar';
 import Data from './dbUser';
+import {Form} from './userForm';
 
 export class EditUser extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            key: null,
-            value: null
-        }
 
-        Data.userData("2oVlZuynejcC4i1nrZGJip8e6Om1").on('value', snapshot => {
+        this.state = {
+            key: '',
+            value: {
+                name          : '',
+                phone         : '',
+                key           : ''
+            }
+        }
+        
+    }
+
+    componentDidMount(){
+        Data.userData(this.props.match.params.id).on('value', snapshot => {
             this.setState({
-                key: snapshot.key,
-                value: snapshot.val()
+                key : snapshot.key,
+                value:{
+                    name : snapshot.val().name,
+                    phone: snapshot.val().phone,
+                    id  : snapshot.val().id
+                }
             })
         })
-        
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
+
+    handleChange = (obj)=>{
+        this.setState({
+            value : obj
+        })
     }
 
     render() {
         return (
             <div>
                 <TitleBar />
-                <h4>EditUser Layout</h4>
-                <h1>{this.state.key}</h1>
+                {/* Form */}
+                <Form 
+                value = {this.state.value}
+                onChange = {this.handleChange}/>
             </div>
         )
     }
