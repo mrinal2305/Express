@@ -9,7 +9,9 @@ export class VerifyDriver extends React.Component {
         this.state = {
             val : '',
             status : '',
-            image  : ''
+            image  : '',
+            profilePhoto : '',
+            profileFound : ''
         }
     }
 
@@ -25,6 +27,20 @@ export class VerifyDriver extends React.Component {
     componentDidMount(){
      
        Data.userData(this.props.match.params.id).on('value',snapshot => {
+        Data.userProfilePhoto(snapshot.key).then(url =>{
+            console.log(url);
+            this.setState({
+                profilePhoto : url,
+                profileFound : "Found"
+            })
+        }).catch(err => {
+           
+            this.setState({
+                profilePhoto : '',
+                profileFound : err.message
+            })
+        })
+
        var image = [];
        Data.userDocument(snapshot.key).then(data => {
             data.items.forEach(child => {
@@ -65,7 +81,8 @@ export class VerifyDriver extends React.Component {
             <div>
                 <TitleBar />
                 {/* Form */}
-                <VerifyForm value={this.state.val} status={this.state.status} image={this.state.image} onClick={this.handleChange}/>
+                <VerifyForm value={this.state.val} status={this.state.status} image={this.state.image} onClick={this.handleChange}
+                profilePhoto={this.state.profilePhoto} profileFound={this.state.profileFound}/>
             </div>
         )
     }

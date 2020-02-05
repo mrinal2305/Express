@@ -20,6 +20,11 @@ class Database {
     userDocument(key){
         return this.storage.ref().child('documents').child(key).listAll();
     }
+
+    userProfilePhoto(key){
+        return this.storage.ref('profilePhotos').child(key).getDownloadURL(); // Accessing a image url
+
+    }
 }
 
 export default new Database();
