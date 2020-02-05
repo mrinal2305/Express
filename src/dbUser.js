@@ -18,8 +18,6 @@ class Database {
         //     })
         // }); 
 
-        //MULTIPLE DATA DOUBT any DEVELOPER
-
         // App.database().ref('users').orderByChild('phone').equalTo("+918709350903").on("child_added",snapshot => {
         //     console.log(snapshot.val())
         // })        

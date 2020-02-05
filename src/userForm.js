@@ -4,6 +4,7 @@ import Data from './dbUser';
 
 function Status(props) {
    if(props.count > 0){
+       setTimeout(()=>{props.onChange()},2000)
        return(
            <div>
                <h4>Successfully Updated</h4>
@@ -50,12 +51,16 @@ export function Form(props) {
 
     }
 
+    var onChange = ()=>{
+        setCount(count - 1);
+    }
+
     return (
         <div>
             <input type="text" onChange={handleChange} name="name" value={value.name} />
             <input type="text" onChange={handleChange} name="phone" value={value.phone} />
             <button onClick={handleEdit}>Edit</button>
-            <Status count={count}/>
+            <Status count={count} onChange={onChange}/>
             <button>Delete</button>
         </div>
     )
