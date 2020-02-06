@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useReducer } from "react";
 import auth from "./auth";
+import {AuthForm} from './ui/landingPage';
 
 export const LandingPage = props => {
   var user = {
@@ -22,12 +23,12 @@ export const LandingPage = props => {
 
   return (
     <div>
-      <h1>Landing Page(Auth)</h1>
-      <form onSubmit={handleSubmit}>
+      <AuthForm onClick={handleSubmit} onChange={handleInput}/>
+      {/* <form onSubmit={handleSubmit}>
       <input type="text"    placeholder = "User Name" name="username" onChange={handleInput}/>
       <input type="password"placeholder = "Password" name = "password" onChange={handleInput}/>
       <input type="submit" value="Submit" />
-      </form>
+      </form> */}
      
       {/* <button
         onClick={() => {

@@ -4,6 +4,7 @@ import { LandingPage } from "./landingPage";
 import { AppLayout } from "./appLayout";
 import { ProtectedRoute } from "./protected.route";
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { User } from './user.layout';
 import { Driver } from './driver.layout';

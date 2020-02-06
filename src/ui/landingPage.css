@@ -1,0 +1,34 @@
+.form {
+    background-color:white;
+    width: 50%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    width: 50%;
+    height: 50%;
+    padding-bottom: 15px;
+    padding-top: 51px;
+
+}
+
+.Form {
+    margin: -69px;
+    background-color: white;
+    padding: 21px;
+    margin-top: 208px;
+    border: 1px solid #f05a26;
+    border-radius: 20px;
+    margin-bottom: -41px;
+}
+
+button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+    margin-top: 14px;
+    cursor: cursor;
+    background-color: #f05a26;
+}
+
+.box{
+    margin-top : 5px;
+}

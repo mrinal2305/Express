@@ -21,7 +21,7 @@ function Message(props){
 }
 
 function Check(props){
-    if(props.value == 3){
+    if(props.value === 3){
     return(
         <div>walletBalance must be between 0 and 2000</div>
     )
@@ -32,7 +32,7 @@ function Check(props){
 }
 
 function Button(props){
-    if(props.age == 3){
+    if(props.age === 3){
         return(
             <button disabled onClick={props.onClick}>Submit</button>
         )
@@ -67,7 +67,7 @@ export function RechargeForm(props) {
     }
 
     var handleClick  = () => {
-       if(age == 0){
+       if(age === 0){
         Data.userUpdate(props.value.id).update(props.value)
         .then(()=>{
             setCount(count + 1);

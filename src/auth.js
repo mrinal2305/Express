@@ -1,5 +1,8 @@
 import { App } from './base';
-// import "firebase/auth"; 
+import "firebase/auth"; 
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
 
 class Auth {
 
@@ -15,9 +18,19 @@ class Auth {
       .then((user)=>{
         this.authenticated = true;
         cb();
+        Swal.fire(                           // Very Useful during development Swal or (Sweet Alert)
+          'Good job!',
+          'You are now Logged in',
+          'success'
+        )
       })
       .catch((err)=>{
-         alert(err);
+        Swal.fire({
+          title: 'Error!',
+          text: err,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       })
     }
   
