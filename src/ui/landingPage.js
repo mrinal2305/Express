@@ -1,17 +1,14 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import './landingPage.css';
+
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
 function Copyright() {
     return (
@@ -44,6 +41,10 @@ const useStyles = makeStyles(theme => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    button :{
+        backgroundColor: '#f05a26',
+        marginTop : '5px'
+    }
 }));
 
 export function AuthForm(props) {
@@ -53,7 +54,7 @@ export function AuthForm(props) {
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className="Form">
-                <img class="Image" src="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/full_logo_final_without_tagline.png?alt=media&token=5cb32953-53a7-4dac-9405-da7ddc605a29"></img>
+                <img className="Image" alt="logo" src="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/full_logo_final_without_tagline.png?alt=media&token=5cb32953-53a7-4dac-9405-da7ddc605a29"></img>
                 <Typography component="h1" variant="h4">
                     Sign in
         </Typography>
@@ -87,7 +88,7 @@ export function AuthForm(props) {
                         fullWidth
                         variant="contained"
                         color="primary"
-                        className="button"
+                        className={classes.button}
                     >
                         Sign In
           </Button>

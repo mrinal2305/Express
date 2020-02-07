@@ -34,10 +34,9 @@ class Auth {
       })
     }
   
-    logout(cb) {
+    logout() {
       App.auth().signOut();
       this.authenticated = false;
-      cb();
     }
   
     isAuthenticated() {

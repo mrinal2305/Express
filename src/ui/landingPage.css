@@ -23,10 +23,8 @@ img {
     margin-bottom: -41px;
 }
 
-button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
-    margin-top: 14px;
-    cursor: cursor;
-    background-color: #f05a26;
+.button{
+    background-color: red;
 }
 
 .box{

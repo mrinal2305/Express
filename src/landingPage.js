@@ -1,6 +1,7 @@
-import React, { useReducer } from "react";
-import auth from "./auth";
-import {AuthForm} from './ui/landingPage';
+import React from 'react';
+
+import auth from './auth';
+import { AuthForm } from './ui/landingPage';
 
 export const LandingPage = props => {
   var user = {
@@ -8,6 +9,7 @@ export const LandingPage = props => {
     password : ''
   }
 
+  
   var handleSubmit = (event)=>{
     event.preventDefault();
      auth.login(() => {
