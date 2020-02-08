@@ -23,7 +23,7 @@ function Message(props){
 function Check(props){
     if(props.value === 3){
     return(
-        <div>walletBalance must be between 0 and 2000</div>
+        <div>Wallet Balance must be less than 2000</div>
     )
     }
     else{
@@ -60,7 +60,7 @@ export function RechargeForm(props) {
     var handleChange = (event) => {
         var key = event.target.name;
         var value = event.target.value;
-        if(value>0 && value<2000) setAge(0)
+        if(value<2000) setAge(0)
         else setAge(3)
         obj[key] = value;
         props.onChange(obj);

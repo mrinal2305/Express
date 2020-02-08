@@ -2,22 +2,7 @@ import React from 'react';
 import Data from './dbDriver';
 import { TitleBar } from './titleBar';
 import { Link } from 'react-router-dom';
-
-function Goto(props){
-  if(props.found){
-      return(
-          <div>
-                <Link to={`/home/driver/verify/${props.id}`}>Verify</Link>
-                <Link to={`/home/driver/recharge/${props.id}`}>Recharge</Link>
-          </div>
-      )
-  }
-  else {
-      return(
-          <div></div>
-      )
-  }
-}
+import {UI} from './ui/driverUI';
 
 export class Driver extends React.Component {
     constructor(props) {
@@ -48,6 +33,7 @@ export class Driver extends React.Component {
                 spinner: false,
                 found : true
             })
+            console.log(this.state)
         })
     }
 
@@ -55,13 +41,8 @@ export class Driver extends React.Component {
         return (
             <div>
                 <TitleBar />
-                <h4>Driver Layout</h4>
-                <input type="text" name="Search" placeholder="Search" onChange={this.changeHandler} value={this.state.val} />
-                <button onClick={this.handleClick}>Search</button>
-                <h1>{this.state.spinner}</h1>
-                <h1>{this.state.value.name}</h1>
-                <Goto found={this.state.found} id={this.state.value.id}/>
+                <UI onChange={this.changeHandler} value={this.state.val} state={this.state} onClick={this.handleClick}/>
             </div>
         )
-    }
+    }   
 }

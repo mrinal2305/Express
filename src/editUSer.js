@@ -27,7 +27,10 @@ export class EditUser extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props.match.params.id);
+
         Data.userData(this.props.match.params.id).on('value', snapshot => {
+          
             this.setState({
                 key: snapshot.key,
                 value: {

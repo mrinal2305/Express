@@ -21,6 +21,7 @@ class Toggle extends React.Component {
         });
 
         setTimeout(() => {
+            // solve 1
             this.setState({
                 value: this.props.value,
                 spinner: false
@@ -156,6 +157,14 @@ export function FormUI(props) {
                     </div>
                     <div className='col-6'>
                         <TextField id="outlined-basic" onChange={props.onChange} name="shopAddress" value={props.value.shopAddress} label="Shop Adress" variant="outlined" />
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-6 text'>
+                        Last Trip
+                    </div>
+                    <div className='col-6'>
+                        <TextField id="outlined-basic" onChange={props.onChange} name="lastTrip" value={props.value.lastTrip} label="Shop Adress" variant="outlined" />
                     </div>
                 </div>
                 <Button variant="contained" color="primary" href="#contained-buttons" onClick={props.onClick} className={classes.button}> 
