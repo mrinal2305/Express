@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import { LandingPage } from "./landingPage";
 import { AppLayout } from "./appLayout";
 import { ProtectedRoute } from "./protected.route";
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { User } from './user.layout';
 import { Driver } from './driver.layout';
@@ -12,8 +12,6 @@ import {EditUser} from './editUSer';
 import {VerifyDriver} from './verifyDriver';
 import {RechargeDriver} from './rechargeDriver';
 
-// import { NavLink ,Prompt } from "react-router-dom";
-import "./index.css";
 
 function App() {
   return (

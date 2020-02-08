@@ -12,6 +12,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { TitleBar } from './titleBar';
+import './index.css';
 
 const useStyles = makeStyles({
   root: {
@@ -33,23 +34,22 @@ export const AppLayout = props => {
         <div className="row box">
           <div className="col">
             <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="User Vector Image"
-                  height="140"
-                  image="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/12-512.png?alt=media&token=060941b9-97d2-4973-ac53-91a9e28b5a31"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    User
+
+              <CardMedia
+                component="img"
+                alt="User Vector Image"
+                height="140"
+                image="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/12-512.png?alt=media&token=060941b9-97d2-4973-ac53-91a9e28b5a31"
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  User
           </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    See and Edit User Information
+                <Typography variant="body2" color="textSecondary" component="p">
+                  See and Edit User Information
           </Typography>
-                </CardContent>
-              </CardActionArea>
+              </CardContent>
               <CardActions>
                 <Link to={`/home/user`} className={classes.Link}>Go to User</Link>
               </CardActions>
@@ -57,23 +57,22 @@ export const AppLayout = props => {
           </div>
           <div className="col">
             <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Driver Vector Image"
-                  height="140"
-                  image="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/images.jpeg?alt=media&token=5f5c163f-31dc-43c5-9be5-769f121baaec"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Driver
+
+              <CardMedia
+                component="img"
+                alt="Driver Vector Image"
+                height="140"
+                image="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/images.jpeg?alt=media&token=5f5c163f-31dc-43c5-9be5-769f121baaec"
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Driver
           </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    Verify and Recharge Driver Information
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Verify and Recharge Driver Information
           </Typography>
-                </CardContent>
-              </CardActionArea>
+              </CardContent>
               <CardActions>
                 <Link to={`/home/driver`} className={classes.Link}>Go to Driver</Link>
 

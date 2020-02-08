@@ -1,17 +1,22 @@
 import 'firebase/firebase-database';
 import 'firebase/firebase-storage';
-
+import { Search } from './ui/userUI';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { App } from './base';
 import Data from './dbUser';
 import { TitleBar } from './titleBar';
+import './index.css';
 
 function Edit(props) {
     if (props.value) {
         return (
-            <Link to={`/home/user/${props.value}`}>Edit</Link>
+            <div>
+            <button type="button" className="btn btn-light">
+                <Link to={`/home/user/${props.value}`}>Edit</Link>
+            </button>
+            </div>
         )
     }
     else {
@@ -30,12 +35,15 @@ export class User extends React.Component {
         this.state = {
             val: '+91',
             user: {
-                key: null,
-                val: null
+                key: '',
+                val: ''
             },
             profilePhoto: null,
             status: null,
             found: true,
+            spinner: false,
+            shopPhoto: null,
+            shopPhotoStatus: null
         }
     }
 
@@ -51,8 +59,26 @@ export class User extends React.Component {
         event.preventDefault();
         // Search from db and show info and click edit button to go to home page
         var phone = this.state.val;
+        this.setState({
+            spinner: true
+        })
 
         Data.userMatch(phone).on("child_added", snapshot => {
+            Data.userShopkeeper(snapshot.key + '.jpg')
+                .then(url => {
+                    this.setState({
+                        shopPhoto: url,
+                        shopPhotoStatus: 'Found'
+                    })
+                })
+                .catch(err => {
+                    this.setState({
+                        snapshoto: null,
+                        shopPhotoStatus: err.message
+                    })
+                }
+                )
+
             // CHECK USER NOT FOUND -- PRIYANSHU NAYAN
             var user = {
                 key: snapshot.key,
@@ -68,6 +94,7 @@ export class User extends React.Component {
                         profilePhoto: url,
                         status: 'Picture found',
                         val: '+91',
+                        spinner: false
                     })
                 })
                 .catch(err => {
@@ -76,15 +103,16 @@ export class User extends React.Component {
                         profilePhoto: null,
                         status: err.message,
                         val: '+91',
+                        spinner: false
                     })
                 }); //get download url    
-
         })
 
         setTimeout(() => {
             this.setState({
                 val: '+91',
-                found: true
+                found: true,
+
             })
 
             if (this.state.user.key == null) {
@@ -94,11 +122,13 @@ export class User extends React.Component {
                 }
                 this.setState({
                     user: user,
-                    found: false
+                    found: false,
+                    spinner: false
                 })
             }
+
             //Make state null and prompt not found messsage
-        }, 8000)
+        }, 12000)
     }
 
     render() {
@@ -107,12 +137,7 @@ export class User extends React.Component {
                 <div>
                     <TitleBar />
                     {/* User Layout */}
-                    <input type='text' placeholder="Add User Phone no" onChange={this.handleInput} value={this.state.val} />
-                    <button onClick={this.handleSubmit}>Submit</button>
-                    {/* Show Data and add show some message if not found*/}
-                    <h3>{this.state.user.key}</h3>
-                    <h3>{this.state.profilePhoto}</h3>
-                    <h3>{this.state.status}</h3>
+                    <Search value={this.state} onChange={this.handleInput} onClick={this.handleSubmit} user={this.state.user.val} />
                     <Edit value={this.state.user.key} />
                 </div>
             )
@@ -122,10 +147,11 @@ export class User extends React.Component {
                 <div>
                     <TitleBar />
                     {/* User Layout */}
-                    <input type='text' placeholder="Add User Phone no" onChange={this.handleInput} value={this.state.val} />
-                    <button onClick={this.handleSubmit}>Submit</button>
+                    <Search value={this.state} onChange={this.handleInput} onClick={this.handleSubmit} />
+                    {/* <input type='text' placeholder="Add User Phone no" onChange={this.handleInput} value={this.state.val} /> */}
                     {/* Show false */}
-                    <h3>Not found</h3>
+                    <div className="container alert alert-danger" role="alert">
+                        Not Found</div>
                 </div>
             )
         }

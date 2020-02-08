@@ -1,7 +1,7 @@
 import React from 'react';
 import { TitleBar } from './titleBar';
 import Data from './dbUser';
-import {Form} from './userForm';
+import { Form } from './userForm';
 
 export class EditUser extends React.Component {
     constructor(props) {
@@ -10,22 +10,38 @@ export class EditUser extends React.Component {
         this.state = {
             key: '',
             value: {
-                name          : '',
-                phone         : '',
-                key           : ''
+                name: '',
+                phone: '',
+                key: '',
+                cancellations: '',
+                email: '',
+                hasPicture: '',
+                lastTrip: '',
+                permitted: '',
+                shopAddress: '',
+                shopkeeper: '',
+                found     : false
             }
         }
-        
+
     }
 
-    componentDidMount(){
+    componentDidMount() {
         Data.userData(this.props.match.params.id).on('value', snapshot => {
             this.setState({
-                key : snapshot.key,
-                value:{
-                    name : snapshot.val().name,
+                key: snapshot.key,
+                value: {
+                    name: snapshot.val().name,
                     phone: snapshot.val().phone,
-                    id  : snapshot.val().id
+                    id: snapshot.val().id,
+                    cancellations: snapshot.val().cancellations,
+                    email: snapshot.val().email,
+                    hasPicture: snapshot.val().hasPicture,
+                    lastTrip: snapshot.val().lastTrip,
+                    permitted: snapshot.val().permitted,
+                    shopAddress: snapshot.val().shopAddress,
+                    shopkeeper: snapshot.val().shopkeeper,
+                    found : true
                 }
             })
         })
@@ -33,11 +49,11 @@ export class EditUser extends React.Component {
 
     componentWillUnmount() {
         this._isMounted = false;
-      }
+    }
 
-    handleChange = (obj)=>{
+    handleChange = (obj) => {
         this.setState({
-            value : obj
+            value: obj
         })
     }
 
@@ -46,9 +62,9 @@ export class EditUser extends React.Component {
             <div>
                 <TitleBar />
                 {/* Form */}
-                <Form 
-                value = {this.state.value}
-                onChange = {this.handleChange}/>
+                <Form
+                    value={this.state.value}
+                    onChange={this.handleChange} />
             </div>
         )
     }

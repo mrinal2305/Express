@@ -53,14 +53,14 @@ export function TitleBar(props) {
             <AppBar position="static" className={classes.bar}>
                 <Toolbar>
                     <HomeIcon className={classes.icon} />
-                    <Link to='/home' class={classes.anchorLeft}>Home</Link>
+                    <Link to='/home' className={classes.anchorLeft}>Home</Link>
                         <Typography variant="h3" className={classes.title}>
                         Admin Panel Express
           </Typography>
                     <PersonIcon className={classes.icon} />
-                    <Link to='/home/user' class={classes.anchorRight}>User</Link>
+                    <Link to='/home/user' className={classes.anchorRight}>User</Link>
                     <DriveEtaIcon className={classes.icon} />
-                    <Link to='/home/driver' class={classes.anchorRight}>Driver</Link>
+                    <Link to='/home/driver' className={classes.anchorRight}>Driver</Link>
                     <ExitToAppIcon />
                     <Button href="#text-buttons" color="primary" className={classes.button}
                         onClick={() => {

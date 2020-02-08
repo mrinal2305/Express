@@ -1,0 +1,21 @@
+h1, .h1 {
+    font-size: 2.5rem;
+    color: #b62500;
+}
+
+.text {
+    font-size: 29px;
+    color: rgba(0, 0, 0, 0.788);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 18px;
+}  
+
+.form{
+    margin-top: 3em;
+}

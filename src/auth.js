@@ -4,7 +4,7 @@ import "firebase/auth";
 import Swal from 'sweetalert2'
 
 
-class Auth {
+class Auth {  
 
     constructor() {
       this.authenticated = true;

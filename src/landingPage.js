@@ -26,21 +26,7 @@ export const LandingPage = props => {
   return (
     <div>
       <AuthForm onClick={handleSubmit} onChange={handleInput}/>
-      {/* <form onSubmit={handleSubmit}>
-      <input type="text"    placeholder = "User Name" name="username" onChange={handleInput}/>
-      <input type="password"placeholder = "Password" name = "password" onChange={handleInput}/>
-      <input type="submit" value="Submit" />
-      </form> */}
-     
-      {/* <button
-        onClick={() => {
-          auth.login(() => {
-            props.history.push("/app");
-          });
-        }}
-      >
-        Login
-      </button> */}
+   
     </div>
   );
 };

@@ -28,6 +28,11 @@ class Database {
             return App.database().ref('users').orderByChild('phone').equalTo(phone); // Query
         }
 
+        userShopkeeper(key){
+            var storage = App.storage('gs://express-b0920.appspot.com/');       
+            return storage.ref('shopPhotos').child(key).getDownloadURL(); // Accessing a image url
+        }
+
         userPhoto(key){
             var storage = App.storage('gs://express-b0920.appspot.com/');       
             return storage.ref('profilePhotos').child(key).getDownloadURL(); // Accessing a image url
