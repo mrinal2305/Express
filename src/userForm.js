@@ -95,14 +95,13 @@ export function Form(props) {
 
     const handleEdit = () => {
         //Firebase update logic
-        Data.userUpdate(props.value.id).update(props.value)
-            .then(() => {
-                setCount(count + 1);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        console.log(value)
+            Data.userUpdate(props.value.id).update(props.value)
+                .then(() => {
+                    setCount(count + 1);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
     }
 
     var onChange = () => {

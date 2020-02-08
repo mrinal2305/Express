@@ -48,7 +48,7 @@ class Toggle extends React.Component {
                 <div>
                     <Switch
                         checked={this.state.value}
-                        name="hasPicture"
+                        name={this.props.name}
                         onChange={this.handleChange}
                         value={!this.state.value}
                         inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -59,6 +59,7 @@ class Toggle extends React.Component {
     }
 }
 
+
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
@@ -66,7 +67,14 @@ const useStyles = makeStyles(theme => ({
             width: 200,
         },
     },
+    button : {
+        backgroundColor : '#f03a26',
+        marginBottom    : '2em',
+        marginTop       : '1em'
+    }
 }));
+
+// <Toggle value={props.value.shopkeeper} found={props.value.found} onChange={props.onChange} name="shopkeeper"/> // Great Logic to Toggle
 
 export function FormUI(props) {
 
@@ -74,7 +82,6 @@ export function FormUI(props) {
     return (
         <div>
             <div className='form container'>
-                <Toggle value={props.value.hasPicture} found={props.value.found} onChange={props.onChange} />
                 <h1 className="h1">Edit Form</h1>
                 <div className='row'>
                     <div className='col-6 text'>
@@ -114,7 +121,7 @@ export function FormUI(props) {
                         Has Picture
                     </div>
                     <div className='col-6'>
-
+                        <Toggle value={props.value.hasPicture} found={props.value.found} onChange={props.onChange} name="hasPicture" />
                     </div>
                 </div>
 
@@ -123,6 +130,7 @@ export function FormUI(props) {
                         Permitted
                     </div>
                     <div className='col-6'>
+                        <Toggle value={props.value.permitted} found={props.value.found} onChange={props.onChange} name="permitted" />
                     </div>
                 </div>
 
@@ -131,6 +139,7 @@ export function FormUI(props) {
                         Shop Keeper
                     </div>
                     <div className='col-6'>
+                        <Toggle value={props.value.shopkeeper} found={props.value.found} onChange={props.onChange} name="shopkeeper" />
                     </div>
                 </div>
                 <div className='row'>
@@ -149,7 +158,7 @@ export function FormUI(props) {
                         <TextField id="outlined-basic" onChange={props.onChange} name="shopAddress" value={props.value.shopAddress} label="Shop Adress" variant="outlined" />
                     </div>
                 </div>
-                <Button variant="contained" color="primary" href="#contained-buttons" onClick={props.onClick}>
+                <Button variant="contained" color="primary" href="#contained-buttons" onClick={props.onClick} className={classes.button}> 
                     Submit
                 </Button>
             </div>
