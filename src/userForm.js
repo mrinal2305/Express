@@ -53,11 +53,11 @@ export function Form(props) {
     }
 
     const handleEdit = () => {
-        if(value.shopAddress == undefined){
+        if(value.shopAddress === undefined){
            value.shopAddress = '';
         }
 
-        if(value.lastTrip == undefined){
+        if(value.lastTrip === undefined){
             value.lastTrip = '';
         }
 

@@ -33,7 +33,6 @@ export class Driver extends React.Component {
                 spinner: false,
                 found : true
             })
-            console.log(this.state)
         })
     }
 

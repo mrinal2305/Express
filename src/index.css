@@ -31,3 +31,11 @@ code {
   margin-top: 9px;
   width: 10%;
 }
+
+.recharge {
+  background-color: white;
+  margin-top: 8em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  width: 70%;
+}
