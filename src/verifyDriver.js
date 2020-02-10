@@ -1,13 +1,16 @@
 import React from 'react';
+
 import Data from './dbDriver';
-import { TitleBar } from './titleBar';
 import { VerifyForm } from './driverVerifyForm';
+import { TitleBar } from './titleBar';
 
 export class VerifyDriver extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            val : '',
+            val : {
+                
+            },
             status : '',
             image  : '',
             profilePhoto : '',
@@ -18,10 +21,7 @@ export class VerifyDriver extends React.Component {
     handleChange = (obj,status,image) => {
         this.setState({
             val : obj,
-            status :status,
-            image :image
         })
-        
     }
 
     componentDidMount(){
@@ -47,13 +47,12 @@ export class VerifyDriver extends React.Component {
              child.getDownloadURL().then(url => { //getting url of all images
                  var obj = {
                      name : child.name,
-                     url  : child.url
+                     url  : url
                  }
                  image.push(obj);
              });  
- 
             })
-
+         
             this.setState({
                 val : snapshot.val(),
                 status : "Image Found",
@@ -67,9 +66,7 @@ export class VerifyDriver extends React.Component {
                     image : ''
                 })    
             })
-      
         })
-    
     }
 
     componentWillUnmount() {
@@ -81,7 +78,7 @@ export class VerifyDriver extends React.Component {
             <div>
                 <TitleBar />
                 {/* Form */}
-                <VerifyForm value={this.state.val} status={this.state.status} image={this.state.image} onClick={this.handleChange}
+                <VerifyForm value={this.state} status={this.state.status} image={this.state.image} onClick={this.handleChange}
                 profilePhoto={this.state.profilePhoto} profileFound={this.state.profileFound}/>
             </div>
         )

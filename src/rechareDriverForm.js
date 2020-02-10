@@ -6,6 +6,8 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -13,10 +15,10 @@ const useStyles = makeStyles(theme => ({
             margin: theme.spacing(1),
         },
     },
-    button : {
-        backgroundColor : '#f03a26',
-        '&:hover' :{
-            color : 'white'
+    button: {
+        backgroundColor: '#f03a26',
+        '&:hover': {
+            color: 'white'
         }
     }
 }));
@@ -117,19 +119,22 @@ export function RechargeForm(props) {
     return (
         <div>
             <div className="container recharge">
+            
                 <h3><b>Name :</b>{props.value.name}</h3>
                 <h3><b>Phone :</b>{props.value.phone}</h3>
                 <h3><b>vehicleType :</b>{props.value.vehicleType}</h3>
                 <div className="row">
                     <div className="col"><h3><b>Amount</b></h3></div>
                     <div className="col">
-       
-                        <OutlinedInput
+                      
+                        <TextField
+                            label="Amount"
+                            id="outlined-start-adornment"
                             name="walletBalance" value={props.value.walletBalance} onChange={handleChange} placeholder="Wallet Balance"
-                            id="outlined-adornment-amount"
-                            startAdornment={<InputAdornment position="start">
-                            </InputAdornment>}
-                            labelWidth={60}
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start">₹(Rs)</InputAdornment>,
+                            }}
+                            variant="outlined"
                         />
                     </div>
                 </div>
