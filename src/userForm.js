@@ -43,6 +43,7 @@ export function Form(props) {
         if(val === 'true' || val === 'false'){ //solve 1
             var isTrue = (val === 'true')
             value[key] = isTrue;
+            props.onChange(value);
             return ;
         }
        

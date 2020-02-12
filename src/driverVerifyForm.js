@@ -21,6 +21,7 @@ function Message(props) {
     }
 }
 
+
 export function VerifyForm(props) {
     var [count, setCount] = useState(0);
 
@@ -53,16 +54,24 @@ export function VerifyForm(props) {
     var handleChange = (event) => {
         var key = event.target.name;
         var value = event.target.value;
+        if(value === 'true' || value==='false'){
+            var isTrue = (value == 'true');
+            obj[key] = isTrue;
+            props.onClick(obj);
+            return;
+        }
         obj[key] = value;
         props.onClick(obj);
     }
 
     var handleClick = () => {
-        // Data.userUpdate(props.value.id).update(props.value).then(()=>{
-        //     setCount(count + 1);
-        // })
-      
-        console.log(props.value.val);
+        Data.userUpdate(props.value.val.id).update(props.value.val).then(()=>{
+            setCount(count + 1);
+            console.log("Success");
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     var changeCount = () => {
@@ -71,7 +80,7 @@ export function VerifyForm(props) {
 
     return (
         <div>
-            <Verify value={props.value.val} onChange={handleChange} onClick={handleClick} count={count} changeCount={changeCount} />
+            <Verify value={props.value.val} val={props.value} onChange={handleChange} onClick={handleClick} count={count} changeCount={changeCount} />
         </div>
     )
 }

@@ -62,7 +62,7 @@ export const AppLayout = props => {
                 component="img"
                 alt="Driver Vector Image"
                 height="140"
-                image="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/images.jpeg?alt=media&token=5f5c163f-31dc-43c5-9be5-769f121baaec"
+                image="https://firebasestorage.googleapis.com/v0/b/express-b0920.appspot.com/o/images.jpg?alt=media&token=33ada210-fb60-4668-8ccd-025ff6817ec0"
                 title="Contemplative Reptile"
               />
               <CardContent>

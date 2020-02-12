@@ -8,64 +8,82 @@ export class VerifyDriver extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            val : {
-                
+            val: {
             },
-            status : '',
-            image  : '',
-            profilePhoto : '',
-            profileFound : ''
+            profilePhoto: '',
+            profileFound: '',
+            driverAadharBack : '',
+            driverAadharFront : '',
+            ownerAadharBack : '',
+            ownerAadharFront : '',
+            insurance : '',
+            found : ''
         }
     }
 
-    handleChange = (obj,status,image) => {
+    handleChange = (obj) => {
         this.setState({
-            val : obj,
+            val: obj,
         })
     }
 
-    componentDidMount(){
-     
-       Data.userData(this.props.match.params.id).on('value',snapshot => {
-        Data.userProfilePhoto(snapshot.key).then(url =>{
-            console.log(url);
-            this.setState({
-                profilePhoto : url,
-                profileFound : "Found"
-            })
-        }).catch(err => {
-           
-            this.setState({
-                profilePhoto : '',
-                profileFound : err.message
-            })
-        })
+    componentDidMount() {
 
-       var image = [];
-       Data.userDocument(snapshot.key).then(data => {
-            data.items.forEach(child => {
-             child.getDownloadURL().then(url => { //getting url of all images
-                 var obj = {
-                     name : child.name,
-                     url  : url
-                 }
-                 image.push(obj);
-             });  
-            })
-         
-            this.setState({
-                val : snapshot.val(),
-                status : "Image Found",
-                image :  image
-            })
+        Data.userData(this.props.match.params.id).on('value', snapshot => {
+            var key = snapshot.key + '.jpg';
+            Data.userProfilePhoto(key).then(url => {
 
-            }).catch(err => {
                 this.setState({
-                    val    : snapshot.val(),
-                    status : err,
-                    image : ''
-                })    
+                    profilePhoto: url,
+                    profileFound: "Found"
+                })
+            }).catch(err => {
+
+                this.setState({
+                    profilePhoto: '',
+                    profileFound: err.message
+                })
             })
+
+
+            Data.userDocument(snapshot.key).then(data => {
+
+                data.items[0].getDownloadURL().then(url => {
+                    this.setState({
+                        driverAadharBack: url
+                    })
+                });
+                data.items[1].getDownloadURL().then(url => {
+                    this.setState({
+                        driverAadharFront: url
+                    })
+                });
+                data.items[2].getDownloadURL().then(url => {
+                    this.setState({
+                        ownerAadharBack: url
+                    })
+                });
+                data.items[3].getDownloadURL().then(url => {
+                    this.setState({
+                        ownerAadharFront: url
+                    })
+                });
+                data.items[4].getDownloadURL().then(url => {
+                    this.setState({
+                        insurance: url
+                    })
+                });           //show the data
+                this.setState({
+                    val: snapshot.val(),
+                    found: true
+                })
+            })
+                .catch(err => {
+                    this.setState({
+                        val: snapshot.val(),
+                        found: false
+                    })
+                })
         })
     }
 
@@ -79,7 +97,7 @@ export class VerifyDriver extends React.Component {
                 <TitleBar />
                 {/* Form */}
                 <VerifyForm value={this.state} status={this.state.status} image={this.state.image} onClick={this.handleChange}
-                profilePhoto={this.state.profilePhoto} profileFound={this.state.profileFound}/>
+                    profilePhoto={this.state.profilePhoto} profileFound={this.state.profileFound} />
             </div>
         )
     }
