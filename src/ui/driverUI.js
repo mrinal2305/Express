@@ -94,14 +94,14 @@ export function UI(props) {
 
             <Spinner value={props.state.spinner} />
 
-            <div className='detailDriver container '>
-                <div className='row'>
+            <div className='container detailDriver '>
+             
 
-                    <div className='col text'>
+                    <div className='col textSize'>
                         <p><b>Name          :</b>{props.state.value.name}</p>
                         <p><b>Phone         :</b>{props.state.value.phone}</p>
                         <p><b>Vechile Type  :</b>{props.state.value.vehicleType}</p>
-                    </div>
+              
                 </div>
                 
                     <Goto found={props.state.found} id={props.state.value.id} classes={classes}/>

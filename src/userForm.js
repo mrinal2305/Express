@@ -2,23 +2,23 @@ import React from 'react';
 import { useState } from 'react';
 import { FormUI } from './ui/form';
 import Data from './dbUser';
-function Status(props) {
-    if (props.count > 0) {
-        setTimeout(() => { props.onChange() }, 2000)
-        return (
-            <div>
-                <h4>Successfully Updated</h4>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div>
+// function Status(props) {
+//     if (props.count > 0) {
+//         setTimeout(() => { props.onChange() }, 2000)
+//         return (
+//             <div>
+//                 <h4>Successfully Updated</h4>
+//             </div>
+//         )
+//     }
+//     else {
+//         return (
+//             <div>
 
-            </div>
-        )
-    }
-}
+//             </div>
+//         )
+//     }
+// }
 
 export function Form(props) {
     var [count, setCount] = useState(0);
@@ -83,9 +83,8 @@ export function Form(props) {
 
     return (
         <div>
-            <FormUI onChange={handleChange} value={value} onClick={handleEdit} permisson={permitted} />
-            <Status count={count} onChange={onChange} />
-            <button>Delete</button>
+            <FormUI onChange={handleChange} value={value} onClick={handleEdit} permisson={permitted} count={count} change={onChange}/>
+            {/* <Status count={count} onChange={onChange} /> */}
         </div>
     )
 }

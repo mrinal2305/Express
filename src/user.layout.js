@@ -2,29 +2,13 @@ import 'firebase/firebase-database';
 import 'firebase/firebase-storage';
 import { Search } from './ui/userUI';
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 import { App } from './base';
 import Data from './dbUser';
 import { TitleBar } from './titleBar';
 import './index.css';
 
-function Edit(props) {
-    if (props.value) {
-        return (
-            <div>
-            <button type="button" className="btn btn-light">
-                <Link to={`/home/user/${props.value}`}>Edit</Link>
-            </button>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div></div>
-        )
-    }
-}
 
 // Add UIs
 export class User extends React.Component {
@@ -137,8 +121,9 @@ export class User extends React.Component {
                 <div>
                     <TitleBar />
                     {/* User Layout */}
-                    <Search value={this.state} onChange={this.handleInput} onClick={this.handleSubmit} user={this.state.user.val} />
-                    <Edit value={this.state.user.key} />
+                   
+                    <Search value={this.state} onChange={this.handleInput} onClick={this.handleSubmit} user={this.state.user.val} edit={this.state.user.key}/>
+                  
                 </div>
             )
         }

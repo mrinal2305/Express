@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 class Auth {  
 
     constructor() {
-      this.authenticated = true;
+      this.authenticated = false;
     }
   
     login(cb,user) {

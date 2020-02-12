@@ -16,8 +16,14 @@
     width: 30%;
 }
 
-.text{
+.text {
     text-align: center;
+    background-color: white;
+    width: 30%;
+    height: 25%;
+    margin-right: 2em;
+    margin-left: 10em;
+    margin-top: 0.5em;
 }
 
 img {
@@ -31,4 +37,10 @@ img {
 
 .div{
     width: 30%;
+}
+
+.image{
+    background-color: white;
+    width: 35%;
+ 
 }

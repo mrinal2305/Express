@@ -6,6 +6,26 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './form.css';
 
+function Status(props) {
+    if (props.count > 0) {
+        setTimeout(() => { props.onChange() }, 2000)
+        return (
+            <div>
+                <h4><div class="alert alert-success" role="alert">
+                   Successfully Updated
+</div></h4>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+
+            </div>
+        )
+    }
+}
+
 class Toggle extends React.Component {
     constructor(props) {
         super(props);
@@ -68,10 +88,10 @@ const useStyles = makeStyles(theme => ({
             width: 200,
         },
     },
-    button : {
-        backgroundColor : '#f03a26',
-        marginBottom    : '2em',
-        marginTop       : '1em'
+    button: {
+        backgroundColor: '#f03a26',
+        marginBottom: '2em',
+        marginTop: '1em'
     }
 }));
 
@@ -84,8 +104,9 @@ export function FormUI(props) {
         <div>
             <div className='form container'>
                 <h1 className="h1">Edit Form</h1>
+                <Status count={props.count} onChange={props.change} />
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Name
                     </div>
                     <div className='col-6'>
@@ -93,15 +114,15 @@ export function FormUI(props) {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Phone
                     </div>
-                    <div className='col-6'>
+                    <div className='col-6 h2'>
                         <TextField id="outlined-basic" label="Phone" variant="outlined" onChange={props.onChange} name="phone" value={props.value.phone} />
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Email
                     </div>
                     <div className='col-6'>
@@ -109,7 +130,7 @@ export function FormUI(props) {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Cancellations
                     </div>
                     <div className='col-6'>
@@ -118,7 +139,7 @@ export function FormUI(props) {
                 </div>
 
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Has Picture
                     </div>
                     <div className='col-6'>
@@ -127,7 +148,7 @@ export function FormUI(props) {
                 </div>
 
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Permitted
                     </div>
                     <div className='col-6'>
@@ -136,7 +157,7 @@ export function FormUI(props) {
                 </div>
 
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Shop Keeper
                     </div>
                     <div className='col-6'>
@@ -144,7 +165,7 @@ export function FormUI(props) {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         ID
                     </div>
                     <div className='col-6'>
@@ -152,7 +173,7 @@ export function FormUI(props) {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Shop Adress
                     </div>
                     <div className='col-6'>
@@ -160,14 +181,14 @@ export function FormUI(props) {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-6 text'>
+                    <div className='col-6 h2'>
                         Last Trip
                     </div>
                     <div className='col-6'>
-                        <TextField id="outlined-basic" onChange={props.onChange} name="lastTrip" value={props.value.lastTrip} label="Shop Adress" variant="outlined" />
+                        <TextField id="outlined-basic" onChange={props.onChange} name="lastTrip" value={props.value.lastTrip} label="Last Trip" variant="outlined" />
                     </div>
                 </div>
-                <Button variant="contained" color="primary" href="#contained-buttons" onClick={props.onClick} className={classes.button}> 
+                <Button variant="contained" color="primary" href="#contained-buttons" onClick={props.onClick} className={classes.button}>
                     Submit
                 </Button>
             </div>
